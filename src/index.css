@@ -1,0 +1,195 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+/* 🎨 COLOR SYSTEM */
+:root {
+  --bg-primary: #f1eada;
+  --bg-secondary: #cec1a8;
+  --accent: #b59e7d;
+  --dark: #584738;
+  --black: #1a1a1a;
+
+  --text-primary: #2d2d2d;
+  --text-light: #6b6b6b;
+
+  --border-soft: #e5dfd3;
+}
+
+.rajdhani-light {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.rajdhani-regular {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.rajdhani-medium {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.rajdhani-semibold {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.rajdhani-bold {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+.newsreader{
+  font-family: "Newsreader", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.lexend{
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* GLOBAL STYLES */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+}
+
+/* SCROLL SMOOTH */
+html {
+  scroll-behavior: smooth;
+}
+
+.btn-primary {
+  background: var(--dark);
+  color: white;
+  padding: 12px 24px;
+  letter-spacing: 1px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  
+  opacity: 0.02;
+  pointer-events: none;
+}
+
+
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marqueeReverse 28s linear infinite;
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marqueeReverse 34s linear infinite;
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth body {
+  overflow: hidden;
+}
+.marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marqueeMove 40s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-text {
+  margin-right: 60px;
+  padding: 10px 0;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--dark);
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+/* subtle hover highlight */
+.marquee-text:hover {
+  opacity: 1;
+}
+
+/* ultra smooth */
+@keyframes marqueeMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+/* FORCE override */
+/* .swiper-button-next,
+.swiper-button-prev {
+  color: white !important;
+  opacity: 0.4 !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  opacity: 0.9 !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 5px !important;
+  font-weight: 300 !important;
+} */
+
+
+/* REMOVE default arrow size */
+/* .heroSwiper .swiper-button-next::after,
+.heroSwiper .swiper-button-p
+
