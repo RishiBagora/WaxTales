@@ -96,7 +96,7 @@ export default function Hero() {
     </section>
     <section className="w-full border-y border-[var(--border-soft)] bg-[var(--bg-primary)] py-5">
 
-  <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-3 text-[12px] tracking-[0.2em] uppercase text-[var(--text-light)]">
+  <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-3 text-[8px] md:text-[12px] tracking-[0.2em] uppercase text-[var(--text-light)]">
 
     <p>Limited handcrafted batches available</p>
     <p>Pan India delivery available</p>
