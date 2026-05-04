@@ -9,7 +9,7 @@ export default function AboutStory() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-start">
 
         {/* LEFT — BIG STATEMENT */}
-        <div className="sticky top-32">
+         <div className="relative md:sticky md:top-32">
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}

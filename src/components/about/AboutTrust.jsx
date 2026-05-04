@@ -12,7 +12,7 @@ export default function AboutTrustMarquee() {
   });
 
   // very subtle movement
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-200%"]);
 
   const text = [
     "Handcrafted in small batches",
@@ -43,7 +43,7 @@ export default function AboutTrustMarquee() {
         {text.map((t, i) => (
           <span
             key={i}
-            className="text-[14px] md:text-[15px] tracking-[0.35em] uppercase 
+            className="text-[8px] md:text-[15px] tracking-[0.35em] uppercase 
                        text-[var(--dark)] opacity-90"
           >
             {t}

@@ -31,21 +31,30 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed top-9 left-0 w-full z-50 bg-[var(--dark)]/90 backdrop-blur border-b border-[#7a6853]">
+    <nav className="fixed top-9 left-0 w-full z-50 bg-[var(--dark)]/90 backdrop-blur border-b border-[#7a6853] transition-all duration-500">
 
       {/* MAIN BAR */}
-      <div className="max-w-[1200px] mx-auto px-4 md:px-12 h-[64px] flex items-center justify-between">
+      <div
+        className={`max-w-[1200px] mx-auto px-4 md:px-12 
+        ${scrolled ? "h-[56px]" : "h-[72px]"} 
+        flex items-center justify-between 
+        transition-all duration-500 ease-out`}
+      >
 
         {/* LOGO */}
         <div
           onClick={() => navigate("/")}
-          className="cursor-pointer tracking-[0.25em] text-[#e7dfcf] font-[newsreader] text-[15px]"
+          className={`cursor-pointer tracking-[0.25em] text-[#e7dfcf] font-[newsreader]
+          ${scrolled ? "text-[14px]" : "text-[17px]"}
+          transition-all duration-500`}
         >
           {settings.businessName || "WAX TALES"}
         </div>
 
         {/* DESKTOP MENU */}
-        <div className="hidden md:flex items-center gap-12 uppercase text-[#d6c8b0] text-[12px]">
+        <div className={`hidden md:flex items-center gap-12 uppercase text-[#d6c8b0]
+          ${scrolled ? "text-[11px]" : "text-[12px]"}
+          transition-all duration-500`}>
 
           <Link to="/collections/candles" className="relative group">
             <span className="group-hover:text-white transition">Candles</span>
@@ -57,6 +66,10 @@ export default function Navbar() {
 
           <Link to="/gifting" className="relative group">
             <span className="group-hover:text-white transition">Gifting</span>
+          </Link>
+
+          <Link to="/wedding" className="relative group">
+            <span className="group-hover:text-white transition">Wedding</span>
           </Link>
 
           <Link to="/about" className="relative group">
@@ -78,12 +91,14 @@ export default function Navbar() {
 
           <Heart
             onClick={() => setWishlistOpen(true)}
-            className="w-5 h-5 cursor-pointer"
+            className={`cursor-pointer transition-all duration-500 
+            ${scrolled ? "w-4 h-4" : "w-5 h-5"}`}
           />
 
           <ShoppingBag
             onClick={() => setCartOpen(true)}
-            className="w-5 h-5 cursor-pointer"
+            className={`cursor-pointer transition-all duration-500 
+            ${scrolled ? "w-4 h-4" : "w-5 h-5"}`}
           />
 
           {/* MOBILE MENU BTN */}
@@ -98,12 +113,14 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* 🔥 PREMIUM MOBILE MENU */}
+      {/* 🔥 MOBILE MENU */}
       <div
         className={`fixed top-0 left-0 w-full h-screen bg-[var(--dark)] z-50
         flex flex-col justify-between px-6 py-10
         transition-all duration-500 ${
-          open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
+          open
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-full pointer-events-none"
         }`}
       >
 
@@ -117,7 +134,7 @@ export default function Navbar() {
           <X onClick={() => setOpen(false)} className="w-6 h-6 text-[#e7dfcf]" />
         </div>
 
-        {/* MENU LINKS */}
+        {/* LINKS */}
         <div className="flex flex-col gap-8 mt-16">
 
           {[
@@ -141,7 +158,7 @@ export default function Navbar() {
 
         </div>
 
-        {/* BOTTOM */}
+        {/* FOOTER */}
         <div className="text-[#a89b84] text-xs tracking-[0.3em] uppercase">
           © Wax Tales
         </div>
