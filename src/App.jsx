@@ -33,7 +33,7 @@ function App() {
     <CartProvider>
     <BrowserRouter>
 
-  <ScrollToTop /> {/* 👈 सबसे ऊपर */}
+  <ScrollToTop />
 
   <div className="fixed top-0 w-full z-50">
     <MarqueeStrip />
