@@ -1,11 +1,12 @@
 "use client";
+import { BUSINESS } from "../../data/Business";
+
 
 export default function WhatsAppFloat() {
-  
-  const phoneNumber = "919922007656"; // 👈 apna number (91 + number)
+
   const message = "Hi, I'm interested in your candles. Can you help me?";
 
-  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const url = `https://wa.me/${BUSINESS.phone}?text=${encodeURIComponent(message)}`;
 
   return (
     <a
@@ -14,13 +15,10 @@ export default function WhatsAppFloat() {
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 group"
     >
-
-      {/* BUTTON */}
       <div className="w-12 h-12 rounded-full bg-[var(--dark)] 
                       flex items-center justify-center 
                       shadow-lg hover:scale-110 transition duration-300">
 
-        {/* ICON (SVG) */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
@@ -31,7 +29,6 @@ export default function WhatsAppFloat() {
         </svg>
 
       </div>
-
     </a>
   );
 }

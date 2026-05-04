@@ -1,8 +1,13 @@
+"use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { BUSINESS } from "../../data/Business"
 
 export default function WhatsAppCheckoutModal({ isOpen, onClose, items, totalAmount }) {
+
+  // ✅ FORM STATE
   const [form, setForm] = useState({
     name: "",
     contact: "",
@@ -12,6 +17,10 @@ export default function WhatsAppCheckoutModal({ isOpen, onClose, items, totalAmo
     pincode: "",
     notes: "",
   });
+
+  // ❌ REMOVE THIS (no need anymore)
+  // const [phone, setPhone] = useState(...)
+  // useEffect + getSettings ❌
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -28,26 +37,29 @@ export default function WhatsAppCheckoutModal({ isOpen, onClose, items, totalAmo
       .join("\n");
 
     const message = `
- *NEW ORDER REQUEST* 
+*NEW ORDER REQUEST*
 -----------------------------------
- *CUSTOMER DETAILS*
- *Name:* ${form.name}
- *Contact:* ${form.contact}
+*CUSTOMER DETAILS*
+Name: ${form.name}
+Contact: ${form.contact}
 
- *SHIPPING ADDRESS*
- *Street/House:* ${form.street}
- *City:* ${form.city}
- *State:* ${form.state}
- *Pincode:* ${form.pincode}
-${form.notes ? `*Notes:* ${form.notes}\n` : ""}
- *ORDER SUMMARY*
+*SHIPPING ADDRESS*
+Street: ${form.street}
+City: ${form.city}
+State: ${form.state}
+Pincode: ${form.pincode}
+${form.notes ? `Notes: ${form.notes}\n` : ""}
+
+*ORDER SUMMARY*
 ${orderDetails}
 -----------------------------------
- *TOTAL AMOUNT: Rs. ${totalAmount}*
+TOTAL: Rs. ${totalAmount}
 -----------------------------------
     `.trim();
 
-    const url = `https://wa.me/919922007656?text=${encodeURIComponent(message)}`;
+    // ✅ BUSINESS.phone use
+    const url = `https://wa.me/${BUSINESS.phone}?text=${encodeURIComponent(message)}`;
+
     window.open(url, "_blank");
     onClose();
   };
@@ -75,6 +87,7 @@ ${orderDetails}
                        w-[90%] max-w-md bg-[var(--bg-primary)] z-[70] 
                        shadow-2xl border border-[var(--border-soft)]"
           >
+
             {/* HEADER */}
             <div className="flex items-center justify-between px-6 py-5 border-b border-[var(--border-soft)]">
               <h2 className="font-[newsreader] text-xl text-[var(--dark)]">
@@ -87,6 +100,7 @@ ${orderDetails}
 
             {/* FORM */}
             <div className="p-6 space-y-5 max-h-[75vh] overflow-y-auto">
+
               <div>
                 <label className="font-[lexend] text-[11px] uppercase tracking-[0.35em] text-[var(--text-light)]">
                   Full Name *
@@ -95,7 +109,7 @@ ${orderDetails}
                   name="name"
                   value={form.name}
                   onChange={handleChange}
-                  className="w-full mt-2 border-b-1 border-[var(--dark)] bg-transparent py-2 outline-none font-[lexend]"
+                  className="w-full mt-2 border-b border-[var(--dark)] bg-transparent py-2 outline-none font-[lexend]"
                 />
               </div>
 
@@ -113,7 +127,7 @@ ${orderDetails}
 
               <div>
                 <label className="font-[lexend] text-[11px] uppercase tracking-[0.35em] text-[var(--text-light)]">
-                  Street Address / House No. *
+                  Street Address *
                 </label>
                 <input
                   name="street"
@@ -135,6 +149,7 @@ ${orderDetails}
                     className="w-full mt-2 border-b border-[var(--dark)] bg-transparent py-2 outline-none font-[lexend]"
                   />
                 </div>
+
                 <div>
                   <label className="font-[lexend] text-[11px] uppercase tracking-[0.35em] text-[var(--text-light)]">
                     State *
@@ -160,6 +175,7 @@ ${orderDetails}
                     className="w-full mt-2 border-b border-[var(--dark)] bg-transparent py-2 outline-none font-[lexend]"
                   />
                 </div>
+
                 <div>
                   <label className="font-[lexend] text-[11px] uppercase tracking-[0.35em] text-[var(--text-light)]">
                     Notes
@@ -180,6 +196,7 @@ ${orderDetails}
               >
                 Checkout Via WhatsApp
               </button>
+
             </div>
           </motion.div>
         </>

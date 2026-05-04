@@ -25,110 +25,127 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav
-      className="fixed top-9 left-0 w-full z-50 
-      bg-[var(--dark)]/90 backdrop-blur border-b border-[#7a6853]
-      transition-all duration-500"
-    >
+    <nav className="fixed top-9 left-0 w-full z-50 bg-[var(--dark)]/90 backdrop-blur border-b border-[#7a6853]">
 
-      <div
-        className={`max-w-[1200px] mx-auto px-6 md:px-12 flex items-center justify-between
-        transition-all duration-500
-        ${scrolled ? "py-4" : "py-6"}`}
-      >
+      {/* MAIN BAR */}
+      <div className="max-w-[1200px] mx-auto px-4 md:px-12 h-[64px] flex items-center justify-between">
 
         {/* LOGO */}
         <div
           onClick={() => navigate("/")}
-          className={`cursor-pointer tracking-[0.35em] text-[#e7dfcf] font-[newsreader] font-light
-          ${scrolled ? "text-[16px] transition-all duration-500" : "text-[18px] transition-all duration-500"}`}
+          className="cursor-pointer tracking-[0.25em] text-[#e7dfcf] font-[newsreader] text-[15px]"
         >
           {settings.businessName || "WAX TALES"}
         </div>
 
         {/* DESKTOP MENU */}
-        <div
-          className={`hidden md:flex items-center gap-12 uppercase 
-          text-[#d6c8b0]
-          ${scrolled ? "text-[10px] transition-all duration-500" : " transition-all duration-500 text-[12px]"}`}
-        >
-       
-          
+        <div className="hidden md:flex items-center gap-12 uppercase text-[#d6c8b0] text-[12px]">
+
           <Link to="/collections/candles" className="relative group">
             <span className="group-hover:text-white transition">Candles</span>
-            <span className="absolute left-0 -bottom-2 h-[1px] w-0 bg-white group-hover:w-full transition-all"></span>
-          </Link>
-          <Link to="/collections" className="relative group">
-            <span className="group-hover:text-white transition">Collections</span>
-            <span className="absolute left-0 -bottom-2 h-[1px] w-0 bg-white group-hover:w-full transition-all"></span>
-          </Link>
-          
-          <Link to="/gifting" className="relative group">
-            <span className="group-hover:text-white transition">Gifting</span>
-            <span className="absolute left-0 -bottom-2 h-[1px] w-0 bg-white group-hover:w-full transition-all"></span>
-          </Link>
-          <Link to="/about" className="relative group">
-            <span className="group-hover:text-white transition">About Us</span>
-            <span className="absolute left-0 -bottom-2 h-[1px] w-0 bg-white group-hover:w-full transition-all"></span>
-          </Link>
-          <Link to="/customise" className="relative group">
-            <span className="group-hover:text-white transition">Customise</span>
-            <span className="absolute left-0 -bottom-2 h-[1px] w-0 bg-white group-hover:w-full transition-all"></span>
-          </Link>
-          <Link to="/contact" className="relative group">
-            <span className="group-hover:text-white transition">Contact</span>
-            <span className="absolute left-0 -bottom-2 h-[1px] w-0 bg-white group-hover:w-full transition-all"></span>
           </Link>
 
-          
+          <Link to="/collections" className="relative group">
+            <span className="group-hover:text-white transition">Collections</span>
+          </Link>
+
+          <Link to="/gifting" className="relative group">
+            <span className="group-hover:text-white transition">Gifting</span>
+          </Link>
+
+          <Link to="/about" className="relative group">
+            <span className="group-hover:text-white transition">About</span>
+          </Link>
+
+          <Link to="/customise" className="relative group">
+            <span className="group-hover:text-white transition">Customise</span>
+          </Link>
+
+          <Link to="/contact" className="relative group">
+            <span className="group-hover:text-white transition">Contact</span>
+          </Link>
+
         </div>
 
         {/* RIGHT */}
-        <div className="flex items-center gap-6 text-[#e7dfcf]">
+        <div className="flex items-center gap-4 text-[#e7dfcf]">
 
-          <Heart 
+          <Heart
             onClick={() => setWishlistOpen(true)}
-            className={`hover:scale-120 cursor-pointer ${scrolled ? "w-4 h-4 transition-all duration-500" : "w-5 h-5 transition-all duration-500"}`} 
+            className="w-5 h-5 cursor-pointer"
           />
 
           <ShoppingBag
             onClick={() => setCartOpen(true)}
-            className={`hover:scale-120 cursor-pointer ${scrolled ? "w-4 h-4 transition-all duration-500" : "w-5 h-5 transition-all duration-500"}`}
+            className="w-5 h-5 cursor-pointer"
           />
 
-          {/* MOBILE MENU */}
+          {/* MOBILE MENU BTN */}
           <div className="md:hidden">
             {open ? (
-              <X onClick={() => setOpen(false)} className="w-5 h-5 cursor-pointer" />
+              <X onClick={() => setOpen(false)} className="w-6 h-6" />
             ) : (
-              <Menu onClick={() => setOpen(true)} className="w-5 h-5 cursor-pointer" />
+              <Menu onClick={() => setOpen(true)} className="w-6 h-6" />
             )}
           </div>
 
         </div>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* 🔥 PREMIUM MOBILE MENU */}
       <div
-        className={`fixed top-0 left-0 w-full h-screen bg-[var(--dark)] 
-        flex flex-col items-center justify-center gap-10 
-        text-[14px] tracking-[0.3em] uppercase text-[#e7dfcf] 
+        className={`fixed top-0 left-0 w-full h-screen bg-[var(--dark)] z-50
+        flex flex-col justify-between px-6 py-10
         transition-all duration-500 ${
-          open ? "opacity-100 visible" : "opacity-0 invisible"
+          open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
         }`}
       >
-        
-        <Link onClick={() => setOpen(false)} to="/collections">Collections</Link>
-        <Link onClick={() => setOpen(false)} to="/about">About</Link>
-        <Link onClick={() => setOpen(false)} to="/contact">Contact</Link>
+
+        {/* TOP */}
+        <div className="flex justify-between items-center">
+
+          <div className="text-[#e7dfcf] tracking-[0.25em] text-sm font-[newsreader]">
+            {settings.businessName || "WAX TALES"}
+          </div>
+
+          <X onClick={() => setOpen(false)} className="w-6 h-6 text-[#e7dfcf]" />
+        </div>
+
+        {/* MENU LINKS */}
+        <div className="flex flex-col gap-8 mt-16">
+
+          {[
+            { name: "Candles", path: "/collections/candles" },
+            { name: "Collections", path: "/collections" },
+            { name: "Gifting", path: "/gifting" },
+            { name: "Wedding", path: "/wedding" },
+            { name: "About", path: "/about" },
+            { name: "Customise", path: "/customise" },
+            { name: "Contact", path: "/contact" },
+          ].map((item, i) => (
+            <Link
+              key={i}
+              to={item.path}
+              onClick={() => setOpen(false)}
+              className="text-[#e7dfcf] font-[newsreader] text-2xl font-thin tracking-[0.08em]"
+            >
+              {item.name}
+            </Link>
+          ))}
+
+        </div>
+
+        {/* BOTTOM */}
+        <div className="text-[#a89b84] text-xs tracking-[0.3em] uppercase">
+          © Wax Tales
+        </div>
+
       </div>
 
     </nav>

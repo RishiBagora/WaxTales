@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 
 export default function PaymentOptions() {
   const methods = [
-    { name: "UPI", icon: "/icons/upi.png" },
-    { name: "Credit Card", icon: "/icons/credit-card.png" },
-    { name: "Debit Card", icon: "/icons/debit-card.png" },
-    { name: "Net Banking", icon: "/icons/netbanking.png" },
+    { name: "UPI", icon: "/images/upi_icon.webp" },
+    { name: "Credit Card", icon: "/images/credit_icon.webp" },
+    { name: "Debit Card", icon: "/images/credit_icon.webp" },
+    { name: "Net Banking", icon: "/images/net.webp" },
   ];
 
   return (

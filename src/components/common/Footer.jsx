@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { BUSINESS } from "../../data/Business";
 export default function Footer() {
   return (
     <footer className="relative w-full bg-[var(--dark)] text-[var(--bg-primary)] px-6 md:px-16 pt-32 pb-14 overflow-hidden">
@@ -11,77 +12,63 @@ export default function Footer() {
         {/* CONTACT */}
         <div>
           <h3 className="text-[10px] tracking-[0.4em] uppercase text-[var(--accent)] mb-8 font-[newsreader] font-light">
-            Contact
+           {BUSINESS.name}
           </h3>
 
           <div className="flex flex-col gap-2 text-[14px] text-[var(--bg-secondary)] font-poppins">
 
-            <a href="mailto:taleswax@gmail.com">
+            <a target="__blank" href={`https://mail.google.com/mail/?view=cm&fs=1&to=${BUSINESS.email}&su=Inquiry&body=Hello`}>
             <p className="transition duration-300 hover:text-white">
-              taleswax@gmail.com
+              {BUSINESS.email}
             </p>
 </a>
-            <a href="tel:+919922007656">
+            <a target="__blank" href={`https://wa.me/${BUSINESS.phone}`}>
             <p className="transition duration-300 hover:text-white">
-              +91 99220 07656
+              +91 {BUSINESS.phone.slice(-10)}
             </p>
 </a>
+            <a target="__blank" href={BUSINESS.instagram}>
             <p className="transition duration-300 hover:text-white">
-              Instagram
+               Instagram
             </p>
+</a>
 
           </div>
         </div>
 
-        {/* LINKS */}
-        <div>
-          <h3 className="text-[10px] tracking-[0.4em] uppercase text-[var(--accent)] mb-8 font-[newsreader] font-light">
-            Quick Links
-          </h3>
+       {/* LINKS */}
+<div>
+  <h3 className="text-[10px] tracking-[0.4em] uppercase text-[var(--accent)] mb-8 font-[newsreader] font-light">
+    Quick Links
+  </h3>
 
-          <div className="flex flex-col gap-2 text-[14px] text-[var(--bg-secondary)] font-poppins">
+  <div className="flex flex-col gap-2 text-[14px] text-[var(--bg-secondary)] font-poppins">
 
-            {["FAQs", "Story", "Wedding", "Gifting", "Customise"].map((item, i) => (
-              <Link
-              to={`/${item.toLowerCase().replace(" ", "-")}`}
-                key={i}
-                className="transition duration-300 hover:text-white"
-              >
-                {item}
-              </Link>
-            ))}
+    {["FAQs", "Story", "Wedding", "Gifting", "Customise","Payment Options"].map((item, i) => (
+      <Link
+        to={`/${item.toLowerCase().replace(" ", "-")}`}
+        key={i}
+        className="transition duration-300 hover:text-white"
+      >
+        {item}
+      </Link>
+    ))}
 
-          </div>
-        </div>
+  </div>
+</div>
 
-        {/* NEWSLETTER */}
-        <div>
-          <h3 className="text-[10px] tracking-[0.4em] uppercase text-[var(--accent)] mb-8 font-[newsreader] font-light font-poppins">
-            Stay Connected
-          </h3>
+{/* ✅ NEW 3RD SECTION (ADD THIS) */}
+<div>
+  <h3 className="text-[10px] tracking-[0.4em] uppercase text-[var(--accent)] mb-8 font-[newsreader] font-light">
+    About
+  </h3>
 
-          {/* INPUT */}
-          <div className="flex items-center border-b border-[var(--accent)]/30 pb-3 group">
+  <p className="text-[14px] text-[var(--bg-secondary)] font-poppins leading-relaxed max-w-[260px]">
+    Handcrafted candles designed to bring calm, warmth, and a subtle sense of luxury to your everyday spaces.
+  </p>
+</div>
 
-            <input
-              type="email"
-              placeholder="Your email"
-              className="bg-transparent outline-none text-[14px] w-full placeholder:text-[var(--bg-secondary)]"
-            />
-
-            <span className="text-[var(--accent)] text-lg ml-2 
-                             transition duration-500 ease-out 
-                             group-hover:translate-x-2">
-              →
-            </span>
-
-          </div>
-
-          <p className="text-[12px] text-[var(--bg-secondary)] mt-5 leading-relaxed">
-            Receive updates, new launches & quiet inspirations.
-          </p>
-
-        </div>
+  
 
       </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { BUSINESS } from "../../data/Business";
 
 export default function ContactMain() {
 
@@ -10,11 +11,9 @@ export default function ContactMain() {
     const name = e.target.name.value;
     const message = e.target.message.value;
 
-    const phone = "919876543210"; // 👉 apna number (without +)
+    const text = `Hello, I would like to connect.\n\nName: ${name}\nMessage: ${message}`;
 
-    const text = `Hello, I would like to connect.%0A%0AName: ${name}%0AMessage: ${message}`;
-
-    const url = `https://wa.me/${phone}?text=${text}`;
+    const url = `https://wa.me/${BUSINESS.phone}?text=${encodeURIComponent(text)}`;
 
     window.open(url, "_blank");
   };
@@ -36,7 +35,6 @@ export default function ContactMain() {
             Send a message
           </motion.h2>
 
-          {/* FORM */}
           <form onSubmit={handleSubmit} className="space-y-10">
 
             {/* NAME */}
@@ -48,8 +46,7 @@ export default function ContactMain() {
                 name="name"
                 type="text"
                 required
-                className="w-full mt-3 bg-transparent border-b 
-                           py-2 outline-none font-[lexend] font-light"
+                className="w-full mt-3 bg-transparent border-b py-2 outline-none font-[lexend] font-light"
               />
             </div>
 
@@ -62,8 +59,7 @@ export default function ContactMain() {
                 name="message"
                 rows="4"
                 required
-                className="w-full mt-3 bg-transparent border-b
-                           py-2 outline-none font-[lexend] font-light resize-none"
+                className="w-full mt-3 bg-transparent border-b py-2 outline-none font-[lexend] font-light resize-none"
               />
             </div>
 
@@ -96,34 +92,37 @@ export default function ContactMain() {
               <p className="font-[lexend] font-light text-[11px] tracking-[0.4em] uppercase text-[var(--text-light)] mb-3">
                 WhatsApp
               </p>
+
               <p
-                onClick={() => window.open("https://wa.me/919922007656", "_blank")}
-                className="font-[newsreader] font-thin text-xl text-[var(--dark)] cursor-pointer">
-                +91 99220 07656
+                onClick={() => window.open(`https://wa.me/${BUSINESS.phone}`, "_blank")}
+                className="font-[newsreader] font-thin text-xl text-[var(--dark)] cursor-pointer"
+              >
+                +91 {BUSINESS.phone.slice(-10)}
               </p>
             </motion.div>
-<motion.div
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1 }}
->
-  <p className="font-[lexend] font-light text-[11px] tracking-[0.4em] uppercase text-[var(--text-light)] mb-3">
-    Email
-  </p>
 
-  <a
-    href="https://mail.google.com/mail/?view=cm&fs=1&to=taleswax@gmail.com&su=Inquiry&body=Hello"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="font-[newsreader] font-thin text-xl text-[var(--dark)] cursor-pointer relative inline-block group"
-  >
-    taleswax@gmail.com
+            {/* EMAIL */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <p className="font-[lexend] font-light text-[11px] tracking-[0.4em] uppercase text-[var(--text-light)] mb-3">
+                Email
+              </p>
 
-    {/* underline animation */}
-    <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-[var(--dark)] transition-all duration-500 group-hover:w-full"></span>
-  </a>
-</motion.div>
-           
+              <a
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${BUSINESS.email}&su=Inquiry&body=Hello`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-[newsreader] font-thin text-xl text-[var(--dark)] cursor-pointer relative inline-block group"
+              >
+                {BUSINESS.email}
+
+                <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-[var(--dark)] transition-all duration-500 group-hover:w-full"></span>
+              </a>
+            </motion.div>
+
           </div>
 
         </div>
