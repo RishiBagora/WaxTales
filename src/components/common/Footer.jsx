@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="relative w-full bg-[var(--dark)] text-[var(--bg-primary)] px-6 md:px-16 pt-32 pb-14 overflow-hidden">
@@ -15,14 +16,16 @@ export default function Footer() {
 
           <div className="flex flex-col gap-2 text-[14px] text-[var(--bg-secondary)] font-poppins">
 
+            <a href="mailto:taleswax@gmail.com">
             <p className="transition duration-300 hover:text-white">
               taleswax@gmail.com
             </p>
-
+</a>
+            <a href="tel:+919922007656">
             <p className="transition duration-300 hover:text-white">
               +91 99220 07656
             </p>
-
+</a>
             <p className="transition duration-300 hover:text-white">
               Instagram
             </p>
@@ -38,13 +41,14 @@ export default function Footer() {
 
           <div className="flex flex-col gap-2 text-[14px] text-[var(--bg-secondary)] font-poppins">
 
-            {["FAQs", "Delivery & Returns", "Terms & Conditions"].map((item, i) => (
-              <p
+            {["FAQs", "Story", "Wedding", "Gifting", "Customise"].map((item, i) => (
+              <Link
+              to={`/${item.toLowerCase().replace(" ", "-")}`}
                 key={i}
                 className="transition duration-300 hover:text-white"
               >
                 {item}
-              </p>
+              </Link>
             ))}
 
           </div>
@@ -96,10 +100,10 @@ export default function Footer() {
       </div>
 
       {/* ✨ HUGE FAINT BRAND TEXT (VERY SUBTLE 😈) */}
-      <div className="font-[lexend] font-thin hidden md:block relative top-12 text-center text-[120px] font-[Playfair Display] text-white/5 pointer-events-none select-none">
+      <div className="font-[lexend] font-thin text-[60px] md:block relative top-12 text-center md:text-[120px] font-[Playfair Display] text-white/5 pointer-events-none select-none">
         WAX TALES
       </div>
-      <div className="text-center mt-10 text-[12px] text-[var(--bg-secondary)]">
+      <div className="text-center mb-10 mt-10 text-[12px] text-[var(--bg-secondary)]">
         <p>Designed and Developed by <a target="_blank" href="https://arcocreativestudio.vercel.app" className="hover:text-white transition duration-300 underline text-[var(--accent)]">Arco Creative Studio</a></p>
       </div>
 

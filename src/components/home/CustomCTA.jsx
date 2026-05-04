@@ -1,6 +1,9 @@
 "use client";
 
+import { useNavigate } from "react-router-dom";
+
 export default function CustomCTA() {
+  const navigate = useNavigate();
   return (
     <section className="w-full bg-[var(--bg-primary)] py-40">
 
@@ -22,11 +25,14 @@ export default function CustomCTA() {
             Personalized candles designed to elevate your everyday rituals.
           </p>
 
-          <button className="relative px-8 py-3 text-[11px] tracking-[0.35em] uppercase 
+          <button 
+          onClick={()=>navigate("/customise")}
+          className="relative px-8 py-3 text-[11px] tracking-[0.35em] uppercase 
                    text-[var(--dark)] border border-[var(--dark)] overflow-hidden group">
 
   {/* TEXT */}
-  <span className="relative font-[newsreader] font-light z-10 transition duration-300 group-hover:text-[var(--bg-primary)]">
+  <span
+  className="relative font-[newsreader] font-light z-10 transition duration-300 group-hover:text-[var(--bg-primary)]">
     Customize Yours
   </span>
 

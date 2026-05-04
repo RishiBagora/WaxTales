@@ -8,14 +8,17 @@ import WhyChooseUs from '../components/home/WhyChooseUs'
 import InstagramGrid from '../components/home/InstagramGrid'
 import Testimonials from '../components/home/Testimonials'
 import StripSection from '../components/home/StripSection'
-
+import GiftingSection from '../components/home/GiftingSection'
+import WeddingSection from '../components/home/WeddingSection'
 const Home = () => {
   return (
     <div>
         <Hero/>
         <Collections/>
         <FeaturedProducts/>
+        <GiftingSection/>
         <StripSection/>
+        <WeddingSection/>
         <BrandStory/>
         <CustomCTA/>
         <WhyChooseUs/>

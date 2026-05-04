@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function BrandStory() {
   return (
     <section className="w-full bg-[var(--bg-primary)] py-36">
@@ -25,6 +27,7 @@ export default function BrandStory() {
           </p>
 
           {/* LINK */}
+          <Link to="/story">
           <button className="relative text-[var(--dark)] text-[12px] tracking-[0.2em] uppercase group">
 
             <span className="relative z-10 font-[newsreader] font-thin">
@@ -36,7 +39,7 @@ export default function BrandStory() {
               transition-transform duration-300"></span>
 
           </button>
-
+</Link>
         </div>
 
         {/* RIGHT */}

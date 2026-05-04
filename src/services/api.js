@@ -125,6 +125,13 @@ export const getProducts = async () => {
       stock: Number(item.stock),
       image: item.images,
       description: item.description,
+      collectionType: item.collectionType,
+      images: item.images.split(","),
+highlights: item.highlights?.split("\n") || [],
+burnTime: item.burnTime,
+waxType: item.waxType,
+weight: item.weight,
+madeIn: item.madeIn,
     }));
   } catch (err) {
     console.error("Products fetch error:", err);
