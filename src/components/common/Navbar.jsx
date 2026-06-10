@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, ShoppingBag, Heart } from "lucide-react";
-import { getSettings } from "../../services/api";
+
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
@@ -10,19 +10,12 @@ import { useWishlist } from "../../context/WishlistContext";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [settings, setSettings] = useState({});
+ 
   const { setCartOpen } = useCart();
   const { setWishlistOpen } = useWishlist();
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const loadSettings = async () => {
-      const data = await getSettings();
-      setSettings(data);
-    };
-    loadSettings();
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
@@ -48,7 +41,7 @@ export default function Navbar() {
           ${scrolled ? "text-[14px]" : "text-[17px]"}
           transition-all duration-500`}
         >
-          {settings.businessName || "WAX TALES"}
+          WAX TALES
         </div>
 
         {/* DESKTOP MENU */}
@@ -128,7 +121,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
 
           <div className="text-[#e7dfcf] tracking-[0.25em] text-sm font-[newsreader]">
-            {settings.businessName || "WAX TALES"}
+           WAX TALES
           </div>
 
           <X onClick={() => setOpen(false)} className="w-6 h-6 text-[#e7dfcf]" />
