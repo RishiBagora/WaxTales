@@ -311,18 +311,7 @@ export default function ProductPage() {
 
 </div>
 
-{/* STORY SECTION */}
-<div className="mt-20 max-w-3xl">
 
-  <h3 className="text-xl font-[Playfair Display] text-[var(--dark)] mb-4">
-    About This Candle
-  </h3>
-
-  <p className="text-[var(--text-light)] leading-relaxed">
-    {product.description}
-  </p>
-
-</div>
 
 <div className="w-full h-[1px] bg-[var(--border-soft)] my-16"></div>
         </div>
