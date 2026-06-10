@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node fetch-sheet-data.cjs && vite build",
+    "build": "node fetch-sheet-data.js && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
