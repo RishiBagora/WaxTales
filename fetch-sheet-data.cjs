@@ -64,6 +64,7 @@ async function buildData() {
 
   // SETTINGS format
   const formattedSettings = {};
+  console.log("Settings raw data:", JSON.stringify(settings));
   settings.forEach((item) => {
     if (item.key) {
       formattedSettings[item.key.trim()] = item.value;
