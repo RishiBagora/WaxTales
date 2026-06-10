@@ -154,7 +154,7 @@
 import products from "../data/products.json";
 import variants from "../data/variants.json";
 import allProducts from "../data/allProducts.json";
-import settings from "../data/settings.json";
+
 import instaImages from "../data/insta.json";
 import collections from "../data/collections.json";
 
@@ -165,4 +165,3 @@ export const getMeta = () => settings;
 export const getAllProducts = () => allProducts;
 export const getInstaImages = () => instaImages;
 export const getCollections = () => collections;
-export const getSettings = () => settings;
